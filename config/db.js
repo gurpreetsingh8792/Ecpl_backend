@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const colors = require('colors')
 
 const connectDB = async () => {
-  let retries = 5;
+  let retries = 15;
   while (retries) {
     try {
       await mongoose.connect(process.env.MONGO_URL, {
