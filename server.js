@@ -40,6 +40,9 @@ app.use("/public", express.static(path.join(__dirname, "public")));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // Routes
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'OK', message: 'Server is running fine!' });
+});
 app.use("/api/auth", authRoutes);
 app.use("/api", projectRoutes);
 app.use("/api/contractors", contractorRoutes);
