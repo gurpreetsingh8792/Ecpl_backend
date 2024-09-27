@@ -21,6 +21,7 @@ const purchaseOrderRoutes = require("./routes/purchaseOrderRoutes");
 const materialReceiptRoutes = require("./routes/materialReceiptRoutes");
 const materialConsumedRoutes = require("./routes/materialConsumedRoutes");
 const bulkMaterialRoutes = require("./routes/bulkMaterialRoutes");
+const machineRoutes = require("./routes/machineRoutes");
 
 //Dotenv
 dotenv.config();
@@ -40,8 +41,8 @@ app.use("/public", express.static(path.join(__dirname, "public")));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // Routes
-app.get('/health', (req, res) => {
-  res.status(200).json({ status: 'OK', message: 'Server is running fine!' });
+app.get("/health", (req, res) => {
+  res.status(200).json({ status: "OK", message: "Server is running fine!" });
 });
 app.use("/api/auth", authRoutes);
 app.use("/api", projectRoutes);
@@ -59,6 +60,7 @@ app.use("/api/po", purchaseOrderRoutes);
 app.use("/api/materialreceipt", materialReceiptRoutes);
 app.use("/api/materialconsumed", materialConsumedRoutes);
 app.use("/api/bulk-recieved", bulkMaterialRoutes);
+app.use("/api/machines", machineRoutes);
 
 //port
 const PORT = process.env.PORT || 8080;
